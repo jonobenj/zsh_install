@@ -1,0 +1,15 @@
+---
+# tasks file for jono_zsh
+
+- name: Install Zsh
+  ansible.builtin.package:
+    name: zsh
+
+- name: Pull OhMyZsh Repo
+  ansible.builtin.command:  cd &&  sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  changed_when: false
+
+- name: Pull PowerLevel10k
+  ansible.builtin.command:
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
