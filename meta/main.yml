@@ -1,6 +1,7 @@
 galaxy_info:
   author: jonobenj
   description: installs and configures zsh
+  version: v0.1
   company: n/a
 
   # If the issue tracker for your role is not on github, uncomment the
@@ -50,3 +51,4 @@ galaxy_info:
 dependencies: []
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,
   # if you add dependencies to this list.
+repository: https://github.com/jonobenj/zsh_install.git
