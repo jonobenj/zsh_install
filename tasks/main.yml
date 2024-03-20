@@ -4,6 +4,7 @@
 - name: Install Zsh
   ansible.builtin.package:
     name: zsh
+  become: true
 
 - name: Pull OhMyZsh Repo
   ansible.builtin.command:  cd &&  sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
