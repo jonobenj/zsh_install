@@ -9,6 +9,7 @@
 - name: Pull OhMyZsh Repo
   ansible.builtin.command: sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
   changed_when: false
+  become: true
 
 - name: Pull PowerLevel10k
   ansible.builtin.command:
