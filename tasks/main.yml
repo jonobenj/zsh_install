@@ -7,7 +7,10 @@
   become: true
 
 - name: Pull OhMyZsh Repo
-  ansible.builtin.command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  ansible.builtin.command:
+    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  args:
+    executable: /bin/sh
   changed_when: false
 
 - name: Pull PowerLevel10k
