@@ -8,31 +8,31 @@
 
 - name: Check if OhMyZsh exists
   ansible.builtin.stat:
-    path: $HOME/.oh-my-zsh
+    path: '{{ path_omz }}'
   register: ohmyzsh_check
 
 - name: Pull OhMyZsh Repo
-  ansible.builtin.shell: /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  ansible.builtin.shell: /bin/sh -c "$(curl -fsSL '{{ omz_install }}')" "" --unattended
   changed_when: false
   when: not ohmyzsh_check.stat.exists
 
-- name: Pull PowerLevel10k
-  ansible.builtin.command:
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
-  when: false
-
 - name: Git Pull PowerLevel10k
   ansible.builtin.git:
-    repo: https://github.com/romkatv/powerlevel10k.git
-    dest: $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+    repo: '{{ pl10k_src }}'
+    dest: '{{ pl10k_dest }}'
     single_branch: true
 
 - name: Copy PowerLevel10k Config
   ansible.builtin.copy:
-    src: .p10k.zsh
-    dest: $HOME/
+    src: '{{ pl10k_conf }}'
+    dest: '{{ path_top }}'
 
 - name: Copy Zsh Config
   ansible.builtin.copy:
-    src: .zshrc
-    dest: $HOME/
+    src: '{{ zshrc }}'
+    dest: '{{ path_top }}'
+
+- name: Make Zsh default
+  ansible.builtin.user:
+    name: '{{ ansible_user }}'
+    shell: /bin/zsh

@@ -1,2 +1,10 @@
 ---
 # defaults file for jono_zsh
+
+omz_install: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+path_top: $HOME
+path_omz: '{{ path_top }}/.oh-my-zsh'
+pl10k_src: https://github.com/romkatv/powerlevel10k.git
+pl10k_dest: '{{ path_omz }}/custom/themes/powerlevel10k'
+pl10k_conf: .p10k.zsh
+zshrc: .zshrc
