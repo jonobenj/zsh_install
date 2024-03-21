@@ -8,3 +8,4 @@ pl10k_src: https://github.com/romkatv/powerlevel10k.git
 pl10k_dest: '{{ path_omz }}/custom/themes/powerlevel10k'
 pl10k_conf: .p10k.zsh
 zshrc: .zshrc
+root_required: true

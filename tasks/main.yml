@@ -37,3 +37,4 @@
     name: '{{ ansible_user }}'
     shell: /bin/zsh
   become: true
+  when: root_required
