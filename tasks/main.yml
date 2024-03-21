@@ -19,6 +19,13 @@
 - name: Pull PowerLevel10k
   ansible.builtin.command:
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+  when: false
+
+- name: Git Pull PowerLevel10k
+  ansible.builtin.git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+    single_branch: true
 
 - name: Copy PowerLevel10k Config
   ansible.builtin.copy:
