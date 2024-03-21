@@ -12,6 +12,7 @@
   register: ohmyzsh_check
 
 - name: debug
+  ansible.builtin.debug:
     var: ohmyzsh_check
 
 - name: Pull OhMyZsh Repo
