@@ -14,7 +14,7 @@
 - name: Pull OhMyZsh Repo
   ansible.builtin.shell: /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   changed_when: false
-  when: not ohmyzsh_check
+  when: not ohmyzsh_check.stat.exists
 
 - name: Pull PowerLevel10k
   ansible.builtin.command:
