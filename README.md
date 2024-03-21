@@ -20,7 +20,7 @@ Role Variables
 Example Playbook
 ----------------
 
-yaml```
+```yaml
 ---
 
 - name: zsh install
