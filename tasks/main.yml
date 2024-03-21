@@ -11,10 +11,6 @@
     path: $HOME\.oh-my-zsh
   register: ohmyzsh_check
 
-- name: debug
-  ansible.builtin.debug:
-    var: ohmyzsh_check
-
 - name: Pull OhMyZsh Repo
   ansible.builtin.shell: /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   changed_when: false
@@ -22,5 +18,5 @@
 
 - name: Pull PowerLevel10k
   ansible.builtin.command:
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 
