@@ -8,7 +8,7 @@
 
 - name: Check if OhMyZsh exists
   ansible.builtin.stat:
-    path: $HOME\.oh-my-zsh
+    path: $HOME/.oh-my-zsh
   register: ohmyzsh_check
 
 - name: Pull OhMyZsh Repo
@@ -20,3 +20,12 @@
   ansible.builtin.command:
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 
+- name: Copy PowerLevel10k Config
+  ansible.builtin.copy:
+    src: .p10k.zsh
+    dest: $HOME/
+
+- name: Copy Zsh Config
+  ansible.builtin.copy:
+    src: .zshrc
+    dest: $HOME/
