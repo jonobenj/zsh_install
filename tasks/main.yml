@@ -6,9 +6,18 @@
     name: zsh
   become: true
 
+- name: Check if OhMyZsh exists
+  ansible.builtin.stat:
+    path: $HOME\.oh-my-zsh
+  register: ohmyzsh_check
+
+- name: debug
+    var: ohmyzsh_check
+
 - name: Pull OhMyZsh Repo
   ansible.builtin.shell: /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   changed_when: false
+  when: not ohmyzsh_check
 
 - name: Pull PowerLevel10k
   ansible.builtin.command:
