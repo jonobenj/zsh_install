@@ -6,6 +6,17 @@
     name: zsh
   become: true
 
+- name: Install chsh
+  ansible.builtin.package:
+    name: util-linux-user
+  become: true
+  when: ansible_facts.ansible_distribution contains "rocky"
+
+- name: Install Git
+  ansible.builtin.package:
+    name: git
+  become: true
+
 - name: Check if OhMyZsh exists
   ansible.builtin.stat:
     path: '{{ path_omz }}'
