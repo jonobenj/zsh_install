@@ -16,6 +16,7 @@ Role Variables
 | `pl10k_conf: .p10k.zsh` | Specifies PowerLevel10k config file (stored in this role in files/) |
 | `zshrc: .zshrc` |
 | `root_required: true` | If you do not have root creds, set this to false. However Zsh will not be made the default shell by this role (must be done manually) |
+| `user: "{{ ansible_user }}` | If wanting zsh as default on root user, run the whole playbook as root, and set `user: root`
 
 Example Playbook
 ----------------

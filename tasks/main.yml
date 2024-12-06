@@ -45,7 +45,7 @@
 
 - name: Make Zsh default
   ansible.builtin.user:
-    name: '{{ ansible_user }}'
+    name: '{{ user }}'
     shell: /bin/zsh
   become: true
   when: root_required
