@@ -10,7 +10,7 @@
   ansible.builtin.package:
     name: util-linux-user
   become: true
-  when: '"rocky" in ansible_distribution'
+  when: '"Rocky" in ansible_distribution'
 
 - name: Install Git
   ansible.builtin.package:
